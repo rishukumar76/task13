@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Program Outputs</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --accent: #f59e42;
+      --surface: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 4px 18px rgba(37, 99, 235, 0.09);
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+      padding: 24px;
+      min-height: 100vh;
+      color: var(--text);
+    }
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      font-size: 2.2em;
+      font-weight: 900;
+      text-shadow: 1px 2px 8px #e0e7ff;
+    }
+    .program {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      margin-bottom: 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      border-left: 7px solid var(--accent);
+      position: relative;
+    }
+    .program:hover {
+      box-shadow: 0 8px 32px #2563eb33;
+      transform: translateY(-4px) scale(1.01);
+    }
+    .program h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.18em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 7px;
+      background-color: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #2563eb22;
+      transition: background 0.2s, transform 0.2s;
+    }
+    button:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+    .output {
+      margin-top: 14px;
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 1.08em;
+      min-height: 24px;
+      letter-spacing: 1px;
+      background: #e0e7ff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      border-left: 4px solid var(--primary);
+      box-shadow: 0 1px 4px #2563eb11;
+    }
+    @media (max-width: 600px) {
+      .program {
+        padding: 16px 8px;
+      }
+      h1 {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    JavaScript Practice Programs
+  </h1>
+
+  <div class="program">
+    <h3>1. Print Name and Address</h3>
+    <button onclick="printNameAddress()">Run</button>
+    <div class="output" id="output1"></div>
+  </div>
+
+  <div class="program">
+    <h3>2. Check Value and Data-Type</h3>
+    <button onclick="checkType()">Run</button>
+    <div class="output" id="output2"></div>
+  </div>
+
+  <div class="program">
+    <h3>3. Add Two Strings and Capitalise</h3>
+    <button onclick="addStrings()">Run</button>
+    <div class="output" id="output3"></div>
+  </div>
+
+  <div class="program">
+    <h3>4. Get String Length in Bytes</h3>
+    <button onclick="stringLengthInBytes()">Run</button>
+    <div class="output" id="output4"></div>
+  </div>
+
+  <div class="program">
+    <h3>5. Round a Number to Specific Digits</h3>
+    <button onclick="roundNumber()">Run</button>
+    <div class="output" id="output5"></div>
+  </div>
+
+  <script>
+    function printNameAddress() {
+      let name = "Rishu Kumar";
+      let address = " Aurangabad, bihar, India";
+      document.getElementById("output1").innerText = `👤 Name: ${name} | 📍 Address: ${address}`;
+    }
+
+    function checkType() {
+      let a = 10;
+      let b = "10";
+      let result = (a === b)
+        ? "✅ Both value and type are the same."
+        : "❌ Value or type are not the same.";
+      document.getElementById("output2").innerText = result;
+    }
+    function addStrings() {
+      let str1 = "good ";
+      let str2 = "morning";
+      let result = (str1 + str2).toUpperCase();
+      document.getElementById("output3").innerText = `Result: ${result}`;
+    }
+    function stringLengthInBytes() {
+      let str = "Namaste Bharat";
+      let bytes = new TextEncoder().encode(str).length;
+      document.getElementById("output4").innerText = `Byte length: ${bytes}`;
+    }
+    function roundNumber() {
+      let number = 9.87654;
+      let digits = 3;
+      let rounded = number.toFixed(digits);
+      document.getElementById("output5").innerText = `Rounded to ${digits} digits: ${rounded}`;
+    }
+  </script>
+</body>
+</html>
